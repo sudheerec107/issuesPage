@@ -18,14 +18,14 @@
       </div>
     </div>
     <div class="align-left pr-2">
-      <span [ngClass]="{'bold': isOpenIssue}" (click)="getIssues(true);">
+      <span [ngClass]="{'bold': isOpenIssue}" (click)="getIssues(true);" id="open">
         <i class="pl-1 fa fa-exclamation-circle fa-green"></i>
         <span class="pl-2">{{openIssueCount}}</span>
         Open
       </span>
     </div>
     <div class="align-left">
-      <span [ngClass]="{'bold': !isOpenIssue}" (click)="getIssues(false)">
+      <span [ngClass]="{'bold': !isOpenIssue}" (click)="getIssues(false)" id="closed">
         <i class="pl-1 fa fa-red fa-check"></i>
         Closed
       </span>

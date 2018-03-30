@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PaginationComponent } from './pagination.component';
 
-fdescribe('PaginationComponent', () => {
+describe('PaginationComponent', () => {
   let component: PaginationComponent;
   let fixture: ComponentFixture<PaginationComponent>;
 
@@ -23,6 +23,7 @@ fdescribe('PaginationComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
   it('initial page count should be one', () => {
     component.totalCount = 100;
     component.perPageCount = 20;
@@ -39,18 +40,33 @@ fdescribe('PaginationComponent', () => {
     let pageCount = fixture.debugElement.queryAll(By.css('.page')).length;
     expect(pageCount).toBe(7);
   });
-  // const compiled = fixture.debugElement.nativeElement;
-  // expect(compiled.querySelector('h1').textContent).toContain('Welcome to app!');
-  it('Click of prev button should increase page count', () => {
+
+  it('On click of next button should increase page count', () => {
     component.totalCount = 100;
     component.perPageCount = 20;
     component.ngOnChanges();
-    component.prevOrNextClick(false);
     fixture.detectChanges();
-    let nextButton = fixture.debugElement.nativeElement.querySelector('.page')
+    let nextButton = fixture.debugElement.nativeElement.querySelectorAll('.page')
+    nextButton = nextButton[nextButton.length -1];
     nextButton.click();
     fixture.detectChanges();
     console.log(nextButton);
-    expect(component.currentPage).toBe(1);
+    expect(component.currentPage).toBe(2);
   });
+  
+  it('On click of next, prev prevOrNextClick to be called', () => {
+    component.totalCount = 100;
+    component.perPageCount = 20;
+    component.ngOnChanges();
+    fixture.detectChanges();
+    spyOn(component, 'prevOrNextClick');
+    let prevButton = fixture.debugElement.nativeElement.querySelector('.page')
+    prevButton.click();
+    expect(component.prevOrNextClick).toHaveBeenCalledWith(true);
+    let nextButton = fixture.debugElement.nativeElement.querySelectorAll('.page')
+    nextButton = nextButton[nextButton.length - 1];
+    nextButton.click();
+    expect(component.prevOrNextClick).toHaveBeenCalledWith(false);
+  });
+
 });
