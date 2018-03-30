@@ -10,12 +10,12 @@ import { TimeAgoPipe } from 'time-ago-pipe';
 @Component({
   template: ''
 })
-class DummyComponent {
+export class DummyComponent {
 }
+
 @Injectable()
-class IssueApiServiceStub {
+export class IssueApiServiceStub {
  getIssues(isOpen: boolean, pageNumber: number = 1, sortDirection: 'desc' | 'asc' = 'desc', sortType: 'created' | 'updated' | 'comments' = 'created'): Promise<any> {
-    
     return new Promise(resoleve => {
       resoleve([{state: 'open',
       labels: [
@@ -51,7 +51,7 @@ describe('IssuePageComponent', () => {
       providers: [{provide: IssueApiService, useClass: IssueApiServiceStub}]
     })
       .compileComponents();
-      service = TestBed.get(IssueApiServiceStub);
+      service = TestBed.get(IssueApiService);
   }));
 
   beforeEach(() => {

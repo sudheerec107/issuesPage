@@ -2,21 +2,6 @@ import { IssueApiService } from './issue-api.service';
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 
-interface Issue {
-  title: string,
-  number: number,
-  user: {
-    login: string
-  },
-  milestone: {
-    title: string
-  },
-  labels: Array<{
-    name: string,
-    color: string
-  }>
-}
-
 @Component({
   selector: 'app-issue-page',
   templateUrl: './issue-page.component.html',

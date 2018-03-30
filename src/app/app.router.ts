@@ -21,7 +21,7 @@ const route: Array<Route> = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(route)
+    RouterModule.forRoot(route, { useHash: true })
   ],
   exports: [RouterModule]
 })

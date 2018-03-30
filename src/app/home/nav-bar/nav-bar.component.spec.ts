@@ -12,7 +12,7 @@ import { Component } from '@angular/core';
 class DummyComponent {
 }
 
-fdescribe('NavBarComponent', () => {
+describe('NavBarComponent', () => {
   let component: NavBarComponent;
   let fixture: ComponentFixture<NavBarComponent>;
 

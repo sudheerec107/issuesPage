@@ -24,6 +24,7 @@ export class PaginationComponent implements OnInit {
 
   ngOnChanges() {
     this.fillPaginationDetails(Math.ceil(this.totalCount / this.perPageCount));
+    this.currentPage = 1;
   }
 
   fillPaginationDetails(count: number) {
