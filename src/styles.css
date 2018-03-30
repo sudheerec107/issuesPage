@@ -1,1 +1,205 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    font-family: "Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    background-color: #fafbfc;
+    font-size: 14px;
+}
+
+
+.mob-col-1, .mob-col-2, .mob-col-3, .mob-col-4, .mob-col-4, .mob-col-5, .mob-col-6, .mob-col-7, .mob-col-8, .mob-col-9, .mob-col-10, .mob-col-11, .mob-col-12,
+.tab-col-1, .tab-col-2, .tab-col-3, .tab-col-4, .tab-col-4, .tab-col-5, .tab-col-6, .tab-col-7, .tab-col-8, .tab-col-9, .tab-col-10, .tab-col-11, .tab-col-12,
+.desk-col-1, .desk-col-2, .desk-col-3, .desk-col-4, .desk-col-4, .desk-col-5, .desk-col-6, .desk-col-7, .desk-col-8, .desk-col-9, .desk-col-10, .desk-col-11, .desk-col-12 {
+    float: left;
+    padding: 10px;
+}
+
+
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+  @media (min-width: 768px) { /*mobile device*/
+    .container {
+      width: 760px;
+    }
+    .mob-col-12 {
+        width: 100%;
+      }
+      .mob-col-11 {
+        width: 91.66666667%;
+      }
+      .mob-col-10 {
+        width: 83.33333333%;
+      }
+      .mob-col-9 {
+        width: 75%;
+      }
+      .mob-col-8 {
+        width: 66.66666667%;
+      }
+      .mob-col-7 {
+        width: 58.33333333%;
+      }
+      .mob-col-6 {
+        width: 50%;
+      }
+      .mob-col-5 {
+        width: 41.66666667%;
+      }
+      .mob-col-4 {
+        width: 33.33333333%;
+      }
+      .mob-col-3 {
+        width: 25%;
+      }
+      .mob-col-2 {
+        width: 16.66666667%;
+      }
+      .mob-col-1 {
+        width: 8.33333333%;
+      }
+  }
+  @media (min-width: 992px) { /* tab device*/
+    .container {
+      width: 970px;
+    }
+    .tab-col-12 {
+        width: 100%;
+      }
+      .tab-col-11 {
+        width: 91.66666667%;
+      }
+      .tab-col-10 {
+        width: 83.33333333%;
+      }
+      .tab-col-9 {
+        width: 75%;
+      }
+      .tab-col-8 {
+        width: 66.66666667%;
+      }
+      .tab-col-7 {
+        width: 58.33333333%;
+      }
+      .tab-col-6 {
+        width: 50%;
+      }
+      .tab-col-5 {
+        width: 41.66666667%;
+      }
+      .tab-col-4 {
+        width: 33.33333333%;
+      }
+      .tab-col-3 {
+        width: 25%;
+      }
+      .tab-col-2 {
+        width: 16.66666667%;
+      }
+      .tab-col-1 {
+        width: 8.33333333%;
+      }
+  }
+  @media (min-width: 1200px) { /* desktop */
+    .container {
+      width: 1170px;
+    }
+
+    .desk-col-12 {
+        width: 100%;
+      }
+      .desk-col-11 {
+        width: 91.66666667%;
+      }
+      .desk-col-10 {
+        width: 83.33333333%;
+      }
+      .desk-col-9 {
+        width: 75%;
+      }
+      .desk-col-8 {
+        width: 66.66666667%;
+      }
+      .desk-col-7 {
+        width: 58.33333333%;
+      }
+      .desk-col-6 {
+        width: 50%;
+      }
+      .desk-col-5 {
+        width: 41.66666667%;
+      }
+      .desk-col-4 {
+        width: 33.33333333%;
+      }
+      .desk-col-3 {
+        width: 25%;
+      }
+      .desk-col-2 {
+        width: 16.66666667%;
+      }
+      .desk-col-1 {
+        width: 8.33333333%;
+      }
+}
+
+  @media (max-width: 991px) {
+    .mob-hidden {
+      display: none !important;
+    }
+  }
+  @media (min-width: 1200px) {
+    .desk-hidden {
+        display: none !important;
+      }
+  }
+  @media (min-width: 992px) and (max-width: 1199px) {
+    .tab-hidden {
+      display: none !important;
+    }
+  }
+
+  .row {
+    float: left;
+    padding: 10px;
+  }
+
+  .align-right {
+float: right !important;
+  }
+
+  .align-left {
+    float: left !important;
+      } 
+
+  .pill {
+    border-radius: 2px;
+    border: solid transparent 2px;
+    padding: 4px;
+    margin: 0.5px;
+    color: #fcfcfc;
+    }
+
+    .pl-2 {
+      padding-left: 8px;
+    }
+
+    .pl-1 {
+      padding-left: 4px;
+    }
+    .pr-2 {
+      padding-right: 8px;
+    }
+
+    .pr-1 {
+      padding-right: 4px;
+    }
+
+    h4 {
+      height: 4px;
+    }
+
+    .bold {
+      font-weight: bold;
+    }

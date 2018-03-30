@@ -1,0 +1,8 @@
+<ul class="nav-bar">
+  <li *ngFor="let item of ['Code', 'Issues', 'Pull requests', 'Projects', 'Wiki', 'Insights']; let i= index;" (click)="selectedIndex = i"
+    [class.selected]="i === selectedIndex">
+    <span [routerLink]="[item.toLowerCase()]">
+      {{item}}
+    </span>
+  </li>
+</ul>

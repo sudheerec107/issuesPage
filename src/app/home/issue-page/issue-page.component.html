@@ -1,0 +1,61 @@
+<div class="tab-hidden desk-hidden" style="height:60px;">
+</div>
+<div class="container">
+  <div class="card card-heading mob-col-12 tab-col-12 desk-col-10">
+    <div class="align-right dropdown mob-hidden tab-hidden desk-col-1">
+      <span>sort By
+        <i class="fa fa-caret-down"></i>
+      </span>
+      <div class="dropdown-content">
+        <span (click)="sortOnCreated('desc')">
+          <i class="fa fa-check pr-2" *ngIf="sortDirection == 'desc' && sortType == 'created'"></i>Newest</span>
+        <span (click)="sortOnCreated('asc')">
+          <i class="fa fa-check pr-2" *ngIf="sortDirection == 'asc' && sortType == 'created'"></i>Oldest</span>
+        <span (click)="sortOnComments('desc')">
+          <i class="fa fa-check pr-2" *ngIf="sortDirection == 'desc' && sortType == 'comments'"></i>Most Commented</span>
+        <span (click)="sortOnComments('asc')">
+          <i class="fa fa-check pr-2" *ngIf="sortDirection == 'asc' && sortType == 'comments'"></i>Least Commented</span>
+      </div>
+    </div>
+    <div class="align-left pr-2">
+      <span [ngClass]="{'bold': isOpenIssue}" (click)="getIssues(true);">
+        <i class="pl-1 fa fa-exclamation-circle fa-green"></i>
+        <span class="pl-2">{{openIssueCount}}</span>
+        Open
+      </span>
+    </div>
+    <div class="align-left">
+      <span [ngClass]="{'bold': !isOpenIssue}" (click)="getIssues(false)">
+        <i class="pl-1 fa fa-red fa-check"></i>
+        Closed
+      </span>
+    </div>
+  </div>
+  <div class="card mob-col-12 tab-col-12 desk-col-10" *ngFor="let issue of issues">
+    <div class="desk-col-8">
+      <i class="fa fa-1x" [ngClass]="{'fa-green': issue.state === 'open', 'fa-exclamation-circle':issue.state === 'open', 'fa-red': issue.state === 'closed', 'fa-check': issue.state === 'closed'}"></i>
+      <span [routerLink]="['../issues', issue.number]">
+        <font size="3" class="bold title">{{issue.title}}</font>
+      </span>
+    </div>
+    <div class="row">
+      <ng-template ngFor let-label [ngForOf]="issue.labels">
+        <span class="pill" [style.backgroundColor]="'#'+label.color">
+          {{label.name}}
+        </span>
+      </ng-template>
+    </div>
+    <div class="desk-col-10">
+      <small>
+        <font size="2">#{{issue.number}} opened {{issue.created_at | timeAgo}} by {{issue.user.login}}</font>
+      </small>
+    </div>
+    <div class="mob-hidden tab-hidden desk-col-1 align-right" *ngIf="issue.comments">
+      <i class="fa fa-comments-o pr-2"></i>{{issue.comments}}
+    </div>
+  </div>
+  <!-- pagination part -->
+  <div class="row">
+    <app-pagination [totalCount]="openIssueCount" [perPageCount]="30" (pageChanged)="pageChanged($event)"></app-pagination>
+  </div>
+</div>
