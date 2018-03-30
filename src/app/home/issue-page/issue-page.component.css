@@ -48,9 +48,14 @@
 
 @media (max-width: 1199px) {
     .card {
-    border-bottom: 1px solid #e1e4e8;
-      }
+        border-bottom: 1px solid #e1e4e8;
+        display: inline-block;
     }
+    .card span {
+        display: inline-block;
+    }    
+}
+
 .fa-green {
     color: lightgreen;
 }

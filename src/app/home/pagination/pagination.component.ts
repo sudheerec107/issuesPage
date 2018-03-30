@@ -14,6 +14,7 @@ export class PaginationComponent implements OnInit {
   public disableNext: boolean = true;
   public disablePrev: boolean = true;
   public currentPage: number = 1;
+  Math = Math;
   constructor() { }
 
   ngOnInit() {
@@ -26,9 +27,11 @@ export class PaginationComponent implements OnInit {
   }
 
   fillPaginationDetails(count: number) {
+    if(!isNaN(count)) {
     this.numberOfPages = Array(count);
     this.disablePrev = this.currentPage === 1;
     this.disableNext = this.currentPage >= this.numberOfPages.length;
+    }
   }
 
   changePage(count) {
