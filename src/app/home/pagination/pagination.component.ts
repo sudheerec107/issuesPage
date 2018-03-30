@@ -38,23 +38,23 @@ export class PaginationComponent implements OnInit {
   changePage(count) {
     if (this.currentPage !== count) {
       this.currentPage = count;
-      this.disablePrev = this.currentPage === 1;
-      this.disableNext = this.currentPage >= this.numberOfPages.length;
+      this.setProperties();
     }
   }
 
   prevOrNextClick(prevClick: boolean) {
     if (prevClick && this.currentPage !== 1) {
       this.currentPage--;
-      this.pageChanged.emit(this.currentPage);
-      this.disablePrev = this.currentPage === 1;
-      this.disableNext = this.currentPage === this.numberOfPages.length;
+      this.setProperties();
     } else if (!prevClick && !(this.currentPage >= this.numberOfPages.length)) {
       this.currentPage++;
-      this.pageChanged.emit(this.currentPage);
-      this.disablePrev = this.currentPage === 1;
-      this.disableNext = this.currentPage === this.numberOfPages.length;
+      this.setProperties();
     }
+  }
 
+  setProperties() {
+    this.pageChanged.emit(this.currentPage);
+    this.disablePrev = this.currentPage === 1;
+    this.disableNext = this.currentPage >= this.numberOfPages.length;
   }
 }
