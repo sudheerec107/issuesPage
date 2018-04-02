@@ -21,7 +21,7 @@
     }
 }
     
-@media(max-width: 775px) {
+@media(max-width: 1199px) {
     .mob-fixed {
         position: fixed;
         bottom: 0px;
